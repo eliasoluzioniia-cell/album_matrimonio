@@ -70,11 +70,12 @@
       "isSpread": true,
       "images": [
         "/pg 14_15/DSCN4897.JPG ft.JPG",
-        "/pg 14_15/DSCN4898.JPG ft.JPG",
+        "/pg 14_15/DSCN4912.JPG ft.JPG",
         "/pg 14_15/DSCN4914.JPG ft.JPG",
         "/pg 14_15/DSCN4917.JPG ft.JPG",
         "/pg 14_15/DSCN4918.JPG ft.JPG",
-        "/pg 14_15/al comune.JPG"
+        "/pg 14_15/al comune.JPG",
+        "blob:http://localhost:5173/67be04cf-6fb0-4892-8a94-1f037f30f0f9"
       ]
     },
     {
@@ -83,6 +84,41 @@
       "images": [
         "/pg 16_17/DSC_0270.JPG"
       ]
+    },
+    {
+      "name": "pg 18_19",
+      "isSpread": true,
+      "images": []
+    },
+    {
+      "name": "pg 20_21",
+      "isSpread": true,
+      "images": []
+    },
+    {
+      "name": "pg 22_23",
+      "isSpread": true,
+      "images": []
+    },
+    {
+      "name": "pg 24_25",
+      "isSpread": true,
+      "images": []
+    },
+    {
+      "name": "pg 26_27",
+      "isSpread": true,
+      "images": []
+    },
+    {
+      "name": "pg 28_29",
+      "isSpread": true,
+      "images": []
+    },
+    {
+      "name": "pg 30_31",
+      "isSpread": true,
+      "images": []
     }
   ]
 }
