@@ -1,15 +1,15 @@
 [
   {
     "pageIndex": 1,
-    "folder": "login",
+    "folder": "pg 1",
     "template": "cover",
     "aspectRatio": 1.2766934557979335,
     "elements": [
       {
         "id": "item_1",
         "type": "image",
-        "cloudinaryPublicId": "https://res.cloudinary.com/jkxwp5hj/image/upload/f_auto,q_auto/N/A",
-        "originalFilename": "A",
+        "cloudinaryPublicId": "https://res.cloudinary.com/jkxwp5hj/image/upload/f_auto,q_auto/matrimonio%20fabio%20tiziana/IMG_2281",
+        "originalFilename": "IMG_2281.JPG",
         "effect": "none",
         "rect": {
           "x": "0%",

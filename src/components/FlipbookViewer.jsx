@@ -286,45 +286,9 @@ export default function FlipbookViewer() {
   const [activeLightboxMedia, setActiveLightboxMedia] = useState(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
-  // Stato reattivo da localStorage o fallback sui JSON
-  const [pagesData, setPagesData] = useState(() => {
-    try {
-      const saved = localStorage.getItem('admin_album_pages');
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length >= (albumData.pages?.length || 0)) {
-          return parsed;
-        }
-      }
-    } catch (e) {
-      console.warn("Errore lettura admin_album_pages:", e);
-    }
-    return albumData.pages;
-  });
-
-  const [layoutCoords, setLayoutCoords] = useState(() => {
-    try {
-      const saved = localStorage.getItem('admin_layout_coords');
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length >= (initialLayoutCoords?.length || 0)) {
-          return parsed;
-        }
-      }
-    } catch (e) {
-      console.warn("Errore lettura admin_layout_coords:", e);
-    }
-    return initialLayoutCoords;
-  });
-
-  useEffect(() => {
-    if (albumData.pages && pagesData.length < albumData.pages.length) {
-      localStorage.removeItem('admin_album_pages');
-      localStorage.removeItem('admin_layout_coords');
-      setPagesData(albumData.pages);
-      setLayoutCoords(initialLayoutCoords);
-    }
-  }, []);
+  // Inizializzazione pulita dai file JSON per garantire la visibilita di tutte le doppie pagine e pg 1
+  const [pagesData, setPagesData] = useState(albumData.pages);
+  const [layoutCoords, setLayoutCoords] = useState(initialLayoutCoords);
 
   // Listener per aggiornamenti dall'Admin Editor
   useEffect(() => {

@@ -45,47 +45,9 @@ import { syncLayoutToGitHub } from '../../utils/githubSync';
 import './AdminLayoutEditor.css';
 
 export default function AdminLayoutEditor({ onSwitchToViewer }) {
-  // Stato Pagine Album e Layout (Inizializzazione diretta con fallback automatico su JSON)
-  const [albumPages, setAlbumPages] = useState(() => {
-    try {
-      const saved = localStorage.getItem('admin_album_pages');
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length >= (initialAlbumData.pages?.length || 0)) {
-          return parsed;
-        }
-      }
-    } catch (e) {
-      console.warn("Errore lettura admin_album_pages:", e);
-    }
-    localStorage.removeItem('admin_album_pages');
-    return initialAlbumData.pages;
-  });
-
-  const [layoutCoords, setLayoutCoords] = useState(() => {
-    try {
-      const saved = localStorage.getItem('admin_layout_coords');
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length >= (initialLayoutCoords?.length || 0)) {
-          return parsed;
-        }
-      }
-    } catch (e) {
-      console.warn("Errore lettura admin_layout_coords:", e);
-    }
-    localStorage.removeItem('admin_layout_coords');
-    return initialLayoutCoords;
-  });
-
-  useEffect(() => {
-    if (initialAlbumData.pages && albumPages.length < initialAlbumData.pages.length) {
-      localStorage.removeItem('admin_album_pages');
-      localStorage.removeItem('admin_layout_coords');
-      setAlbumPages(initialAlbumData.pages);
-      setLayoutCoords(initialLayoutCoords);
-    }
-  }, []);
+  // Inizializzazione pulita dai file JSON per garantire la visibilita di tutte le 16 doppie pagine e pg 1
+  const [albumPages, setAlbumPages] = useState(initialAlbumData.pages);
+  const [layoutCoords, setLayoutCoords] = useState(initialLayoutCoords);
 
   const handleResetToJSON = () => {
     if (window.confirm("Vuoi ripristinare l'ultima configurazione salvata nel file JSON?")) {
