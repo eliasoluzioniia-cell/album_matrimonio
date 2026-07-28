@@ -51,7 +51,7 @@ export default function AdminLayoutEditor({ onSwitchToViewer }) {
       const saved = localStorage.getItem('admin_album_pages');
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) {
+        if (Array.isArray(parsed) && parsed.length >= (initialAlbumData.pages?.length || 0)) {
           const hasPg1 = parsed.some(p => p.name === 'pg 1');
           if (hasPg1) return parsed;
         }
@@ -67,7 +67,7 @@ export default function AdminLayoutEditor({ onSwitchToViewer }) {
       const saved = localStorage.getItem('admin_layout_coords');
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) {
+        if (Array.isArray(parsed) && parsed.length >= (initialLayoutCoords?.length || 0)) {
           const hasPg1 = parsed.some(c => c.folder === 'pg 1' || c.folder === 'login');
           if (hasPg1) return parsed;
         }
@@ -897,7 +897,7 @@ export default function AdminLayoutEditor({ onSwitchToViewer }) {
       layoutCoordinates: layoutCoords.map(c => ({
         ...c,
         elements: c.elements.map((el, idx) => {
-          const rawFile = el.file || 'N/A';
+          const rawFile = el.cloudinaryPublicId || el.file || el.url || el.src || el.originalFilename || 'N/A';
           const fileNameOnly = rawFile.split('/').pop();
           const isVid = isVideoFile(rawFile) || el.type === 'video';
 
@@ -976,7 +976,7 @@ export default function AdminLayoutEditor({ onSwitchToViewer }) {
     });
 
     updateOrEnsurePageCoords(pageObj => {
-      const updatedElements = pageObj.elements.filter(el => el.file !== imgSrc);
+      const updatedElements = pageObj.elements.filter(el => (el.cloudinaryPublicId || el.file || el.originalFilename) !== imgSrc);
       return { ...pageObj, elements: updatedElements };
     });
 
@@ -1238,7 +1238,7 @@ export default function AdminLayoutEditor({ onSwitchToViewer }) {
                   );
                 }
 
-                const rawImgSrc = el.file || currentPage.images?.[idx];
+                const rawImgSrc = el.cloudinaryPublicId || el.file || el.url || el.src || el.originalFilename || currentPage.images?.[idx];
                 const isVideo = isVideoFile(rawImgSrc) || el.type === 'video';
 
                 const resolvedImgSrc = isVideo 
@@ -1428,7 +1428,7 @@ export default function AdminLayoutEditor({ onSwitchToViewer }) {
           {(() => {
             const combinedPageMedia = Array.from(new Set([
               ...(currentPage.images || []),
-              ...currentPageCoords.elements.map(el => el.file).filter(Boolean)
+              ...currentPageCoords.elements.map(el => el.cloudinaryPublicId || el.file || el.originalFilename).filter(Boolean)
             ]));
             return (
               <div className="admin-media-pool">

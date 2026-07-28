@@ -133,7 +133,7 @@ const DynamicPageContent = ({ pageName, images, isLeft, isSpread, onImageClick, 
     return (
       <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden' }}>
         {pageCoord.elements.map((el, idx) => {
-          const rawImg = el.file || images?.[idx];
+          const rawImg = el.cloudinaryPublicId || el.file || el.url || el.src || el.originalFilename || images?.[idx];
           if (!rawImg) return null;
 
           const rawLeft = parseFloat(el.left) || 0;
@@ -288,13 +288,33 @@ export default function FlipbookViewer() {
 
   // Stato reattivo da localStorage o fallback sui JSON
   const [pagesData, setPagesData] = useState(() => {
-    const saved = localStorage.getItem('admin_album_pages');
-    return saved ? JSON.parse(saved) : albumData.pages;
+    try {
+      const saved = localStorage.getItem('admin_album_pages');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length >= (albumData.pages?.length || 0)) {
+          return parsed;
+        }
+      }
+    } catch (e) {
+      console.warn("Errore lettura admin_album_pages:", e);
+    }
+    return albumData.pages;
   });
 
   const [layoutCoords, setLayoutCoords] = useState(() => {
-    const saved = localStorage.getItem('admin_layout_coords');
-    return saved ? JSON.parse(saved) : initialLayoutCoords;
+    try {
+      const saved = localStorage.getItem('admin_layout_coords');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length >= (initialLayoutCoords?.length || 0)) {
+          return parsed;
+        }
+      }
+    } catch (e) {
+      console.warn("Errore lettura admin_layout_coords:", e);
+    }
+    return initialLayoutCoords;
   });
 
   // Listener per aggiornamenti dall'Admin Editor
