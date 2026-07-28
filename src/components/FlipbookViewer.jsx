@@ -317,6 +317,15 @@ export default function FlipbookViewer() {
     return initialLayoutCoords;
   });
 
+  useEffect(() => {
+    if (albumData.pages && pagesData.length < albumData.pages.length) {
+      localStorage.removeItem('admin_album_pages');
+      localStorage.removeItem('admin_layout_coords');
+      setPagesData(albumData.pages);
+      setLayoutCoords(initialLayoutCoords);
+    }
+  }, []);
+
   // Listener per aggiornamenti dall'Admin Editor
   useEffect(() => {
     const refreshData = () => {

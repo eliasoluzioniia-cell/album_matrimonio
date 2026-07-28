@@ -45,20 +45,20 @@ import { syncLayoutToGitHub } from '../../utils/githubSync';
 import './AdminLayoutEditor.css';
 
 export default function AdminLayoutEditor({ onSwitchToViewer }) {
-  // Stato Pagine Album e Layout (con Inizializzazione Sicura Try-Catch)
+  // Stato Pagine Album e Layout (Inizializzazione diretta con fallback automatico su JSON)
   const [albumPages, setAlbumPages] = useState(() => {
     try {
       const saved = localStorage.getItem('admin_album_pages');
       if (saved) {
         const parsed = JSON.parse(saved);
         if (Array.isArray(parsed) && parsed.length >= (initialAlbumData.pages?.length || 0)) {
-          const hasPg1 = parsed.some(p => p.name === 'pg 1');
-          if (hasPg1) return parsed;
+          return parsed;
         }
       }
     } catch (e) {
-      console.warn("Errore lettura admin_album_pages da localStorage, ripristino default:", e);
+      console.warn("Errore lettura admin_album_pages:", e);
     }
+    localStorage.removeItem('admin_album_pages');
     return initialAlbumData.pages;
   });
 
@@ -68,15 +68,24 @@ export default function AdminLayoutEditor({ onSwitchToViewer }) {
       if (saved) {
         const parsed = JSON.parse(saved);
         if (Array.isArray(parsed) && parsed.length >= (initialLayoutCoords?.length || 0)) {
-          const hasPg1 = parsed.some(c => c.folder === 'pg 1' || c.folder === 'login');
-          if (hasPg1) return parsed;
+          return parsed;
         }
       }
     } catch (e) {
-      console.warn("Errore lettura admin_layout_coords da localStorage, ripristino default:", e);
+      console.warn("Errore lettura admin_layout_coords:", e);
     }
+    localStorage.removeItem('admin_layout_coords');
     return initialLayoutCoords;
   });
+
+  useEffect(() => {
+    if (initialAlbumData.pages && albumPages.length < initialAlbumData.pages.length) {
+      localStorage.removeItem('admin_album_pages');
+      localStorage.removeItem('admin_layout_coords');
+      setAlbumPages(initialAlbumData.pages);
+      setLayoutCoords(initialLayoutCoords);
+    }
+  }, []);
 
   const handleResetToJSON = () => {
     if (window.confirm("Vuoi ripristinare l'ultima configurazione salvata nel file JSON?")) {
