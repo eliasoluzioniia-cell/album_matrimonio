@@ -1,0 +1,1229 @@
+{
+  "pages": [
+    {
+      "name": "pg 2_3",
+      "isSpread": true,
+      "images": [
+        "/pg 2_3/DSC_0040.JPG",
+        "/pg 2_3/DSC_0060.JPG",
+        "/pg 2_3/DSC_0061.JPG",
+        "/pg 2_3/DSC_0077.JPG"
+      ]
+    },
+    {
+      "name": "pg 4_5",
+      "isSpread": true,
+      "images": [
+        "/pg 4_5/DSC_0084.JPG",
+        "/pg 4_5/DSC_0106.JPG",
+        "/pg 4_5/DSC_0112.JPG"
+      ]
+    },
+    {
+      "name": "pg 6_7",
+      "isSpread": true,
+      "images": [
+        "/pg 6_7/DSC_0049.JPG",
+        "/pg 6_7/DSC_0069.JPG",
+        "/pg 6_7/DSC_0078.JPG"
+      ]
+    },
+    {
+      "name": "pg 8_9",
+      "isSpread": true,
+      "images": [
+        "/pg 8_9/DSC_0081.JPG",
+        "/pg 8_9/DSC_0089.JPG",
+        "/pg 8_9/DSC_0140.JPG",
+        "/pg 8_9/DSC_0159.JPG",
+        "/pg 8_9/DSC_0160.JPG",
+        "/pg 8_9/DSC_0163.JPG"
+      ]
+    },
+    {
+      "name": "pg 10_11",
+      "isSpread": true,
+      "images": [
+        "/pg 10_11/DSCN4892.JPG",
+        "/pg 10_11/DSC_0294.JPG",
+        "/pg 10_11/SAM_9057.JPG"
+      ]
+    },
+    {
+      "name": "pg 12_13",
+      "isSpread": true,
+      "images": [
+        "/pg 12_13/DSC_0156.JPG",
+        "/pg 12_13/DSC_0222.JPG"
+      ]
+    },
+    {
+      "name": "pg 14_15",
+      "isSpread": true,
+      "images": [
+        "/pg 14_15/DSCN4897.JPG ft.JPG",
+        "/pg 14_15/DSCN4898.JPG ft.JPG",
+        "/pg 14_15/DSCN4914.JPG ft.JPG",
+        "/pg 14_15/DSCN4917.JPG ft.JPG",
+        "/pg 14_15/DSCN4918.JPG ft.JPG",
+        "/pg 14_15/al comune.JPG"
+      ]
+    },
+    {
+      "name": "pg 16_17",
+      "isSpread": true,
+      "images": [
+        "/pg 16_17/DSC_0270.JPG"
+      ]
+    }
+  ],
+  "layoutCoordinates": [
+    {
+      "pageIndex": 1,
+      "folder": "login",
+      "template": "cover",
+      "aspectRatio": 1.2766934557979335,
+      "elements": [
+        {
+          "id": "item_1",
+          "type": "image",
+          "cloudinaryPublicId": "https://res.cloudinary.com/jkxwp5hj/image/upload/f_auto,q_auto/N/A",
+          "originalFilename": "A",
+          "effect": "none",
+          "rect": {
+            "rotation": 0,
+            "zIndex": 1
+          },
+          "cloudinaryTransform": {
+            "crop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": 0
+            },
+            "innerCrop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": 0,
+              "aspectRatioLocked": true
+            },
+            "mask": {
+              "active": false,
+              "id": "none",
+              "styleString": ""
+            },
+            "filters": {
+              "preset": "original",
+              "values": {
+                "brightness": 100,
+                "contrast": 100,
+                "saturate": 100,
+                "blur": 0,
+                "hueRotate": 0
+              },
+              "cssString": "none"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pageIndex": 2,
+      "folder": "pg 2_3",
+      "template": "soft_collage",
+      "aspectRatio": 2.629989376233116,
+      "elements": [
+        {
+          "id": "item_1",
+          "type": "image",
+          "cloudinaryPublicId": "https://res.cloudinary.com/jkxwp5hj/image/upload/f_auto,q_auto/pg 2_3/DSC_0077.JPG",
+          "originalFilename": "DSC_0077.JPG",
+          "effect": "pulse",
+          "rect": {
+            "x": "28.6%",
+            "y": "56%",
+            "width": "44%",
+            "height": "44%",
+            "rotation": 0,
+            "zIndex": 1
+          },
+          "cloudinaryTransform": {
+            "crop": {
+              "zoom": 1.2,
+              "offsetX": 0,
+              "offsetY": 0
+            },
+            "innerCrop": {
+              "zoom": 1.2,
+              "offsetX": 0,
+              "offsetY": 0,
+              "aspectRatioLocked": true
+            },
+            "mask": {
+              "active": true,
+              "id": "fade-edges",
+              "name": "Sfumatura Bordi",
+              "styleObj": {
+                "WebkitMaskImage": "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
+                "maskImage": "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)"
+              },
+              "styleString": "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)"
+            },
+            "filters": {
+              "preset": "original",
+              "values": {
+                "brightness": 100,
+                "contrast": 100,
+                "saturate": 100,
+                "blur": 0,
+                "hueRotate": 0
+              },
+              "cssString": "none"
+            }
+          }
+        },
+        {
+          "id": "item_2",
+          "type": "image",
+          "cloudinaryPublicId": "https://res.cloudinary.com/jkxwp5hj/image/upload/f_auto,q_auto/DSC_0060.JPG",
+          "originalFilename": "DSC_0060.JPG",
+          "effect": "ken-burns-reverse",
+          "rect": {
+            "x": "7.8%",
+            "y": "0%",
+            "width": "50%",
+            "height": "50%",
+            "rotation": 0,
+            "zIndex": 2
+          },
+          "cloudinaryTransform": {
+            "crop": {
+              "zoom": 1.65,
+              "offsetX": 81,
+              "offsetY": 0
+            },
+            "innerCrop": {
+              "zoom": 1.65,
+              "offsetX": 81,
+              "offsetY": 0,
+              "aspectRatioLocked": true
+            },
+            "mask": {
+              "active": true,
+              "id": "fade-edges",
+              "name": "Sfumatura Bordi",
+              "styleObj": {
+                "WebkitMaskImage": "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
+                "maskImage": "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)"
+              },
+              "styleString": "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)"
+            },
+            "filters": {
+              "preset": "original",
+              "values": {
+                "brightness": 100,
+                "contrast": 100,
+                "saturate": 100,
+                "blur": 0,
+                "hueRotate": 0
+              },
+              "cssString": "none"
+            }
+          }
+        },
+        {
+          "id": "item_3",
+          "type": "image",
+          "cloudinaryPublicId": "https://res.cloudinary.com/jkxwp5hj/image/upload/f_auto,q_auto/DSC_0040.JPG",
+          "originalFilename": "DSC_0040.JPG",
+          "effect": "parallax-fg-fast",
+          "rect": {
+            "x": "7.8%",
+            "y": "39.6%",
+            "width": "43.2%",
+            "height": "50.1%",
+            "rotation": 0,
+            "zIndex": 3
+          },
+          "cloudinaryTransform": {
+            "crop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": 0
+            },
+            "innerCrop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": 0,
+              "aspectRatioLocked": true
+            },
+            "mask": {
+              "active": true,
+              "id": "fade-edges",
+              "name": "Sfumatura Bordi",
+              "styleObj": {
+                "WebkitMaskImage": "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
+                "maskImage": "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)"
+              },
+              "styleString": "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)"
+            },
+            "filters": {
+              "preset": "original",
+              "values": {
+                "brightness": 100,
+                "contrast": 100,
+                "saturate": 100,
+                "blur": 0,
+                "hueRotate": 0
+              },
+              "cssString": "none"
+            }
+          }
+        },
+        {
+          "id": "item_4",
+          "type": "image",
+          "cloudinaryPublicId": "https://res.cloudinary.com/jkxwp5hj/image/upload/f_auto,q_auto/DSC_0061.JPG",
+          "originalFilename": "DSC_0061.JPG",
+          "effect": "ken-burns",
+          "rect": {
+            "x": "45.8%",
+            "y": "0%",
+            "width": "51%",
+            "height": "92%",
+            "rotation": 0,
+            "zIndex": 4
+          },
+          "cloudinaryTransform": {
+            "crop": {
+              "zoom": 1.25,
+              "offsetX": -75,
+              "offsetY": 38
+            },
+            "innerCrop": {
+              "zoom": 1.25,
+              "offsetX": -75,
+              "offsetY": 38
+            },
+            "mask": {
+              "active": true,
+              "id": "fade-radial",
+              "name": "Sfumatura Radiale",
+              "styleObj": {
+                "WebkitMaskImage": "radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)",
+                "maskImage": "radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)"
+              },
+              "styleString": "radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)"
+            },
+            "filters": {
+              "preset": "original",
+              "values": {
+                "brightness": 100,
+                "contrast": 100,
+                "saturate": 100,
+                "blur": 0,
+                "hueRotate": 0
+              },
+              "cssString": "none"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pageIndex": 3,
+      "folder": "pg 4_5",
+      "template": "picture_in_picture_soft",
+      "aspectRatio": 2.629989376233116,
+      "elements": [
+        {
+          "id": "item_1",
+          "type": "image",
+          "cloudinaryPublicId": "https://res.cloudinary.com/jkxwp5hj/image/upload/f_auto,q_auto/DSC_0084.JPG",
+          "originalFilename": "DSC_0084.JPG",
+          "effect": "none",
+          "rect": {
+            "x": "0%",
+            "y": "0%",
+            "width": "100%",
+            "height": "100%",
+            "rotation": 0,
+            "zIndex": 1
+          },
+          "cloudinaryTransform": {
+            "crop": {
+              "zoom": 1.15,
+              "offsetX": 27,
+              "offsetY": 21
+            },
+            "innerCrop": {
+              "zoom": 1.15,
+              "offsetX": 27,
+              "offsetY": 21
+            },
+            "mask": "none",
+            "filters": {
+              "preset": "original",
+              "values": {
+                "brightness": 100,
+                "contrast": 100,
+                "saturate": 100,
+                "blur": 0,
+                "hueRotate": 0
+              },
+              "cssString": "none"
+            }
+          }
+        },
+        {
+          "id": "item_2",
+          "type": "image",
+          "cloudinaryPublicId": "https://res.cloudinary.com/jkxwp5hj/image/upload/f_auto,q_auto/DSC_0106.JPG",
+          "originalFilename": "DSC_0106.JPG",
+          "effect": "none",
+          "rect": {
+            "x": "0.3%",
+            "y": "1.7%",
+            "width": "30.2%",
+            "height": "44.6%",
+            "rotation": 0,
+            "zIndex": 2
+          },
+          "cloudinaryTransform": {
+            "crop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": 0
+            },
+            "innerCrop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": 0,
+              "aspectRatioLocked": true
+            },
+            "mask": {
+              "active": true,
+              "id": "fade-edges",
+              "name": "Sfumatura Bordi",
+              "styleObj": {
+                "WebkitMaskImage": "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
+                "maskImage": "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)"
+              },
+              "styleString": "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)"
+            },
+            "filters": {
+              "preset": "original",
+              "values": {
+                "brightness": 100,
+                "contrast": 100,
+                "saturate": 100,
+                "blur": 0,
+                "hueRotate": 0
+              },
+              "cssString": "none"
+            }
+          }
+        },
+        {
+          "id": "item_3",
+          "type": "image",
+          "cloudinaryPublicId": "https://res.cloudinary.com/jkxwp5hj/image/upload/f_auto,q_auto/DSC_0112.JPG",
+          "originalFilename": "DSC_0112.JPG",
+          "effect": "none",
+          "rect": {
+            "x": "1.4%",
+            "y": "52.7%",
+            "width": "21%",
+            "height": "46.3%",
+            "rotation": 0,
+            "zIndex": 3
+          },
+          "cloudinaryTransform": {
+            "crop": {
+              "zoom": 1.45,
+              "offsetX": -7,
+              "offsetY": 35
+            },
+            "innerCrop": {
+              "zoom": 1.45,
+              "offsetX": -7,
+              "offsetY": 35
+            },
+            "mask": {
+              "active": true,
+              "id": "circle",
+              "name": "Cerchio / Ovale",
+              "styleObj": {
+                "borderRadius": "50%"
+              },
+              "styleString": "border-radius: 50%;"
+            },
+            "filters": {
+              "preset": "original",
+              "values": {
+                "brightness": 100,
+                "contrast": 100,
+                "saturate": 100,
+                "blur": 0,
+                "hueRotate": 0
+              },
+              "cssString": "none"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pageIndex": 4,
+      "folder": "pg 6_7",
+      "template": "asymmetric_grid",
+      "aspectRatio": 2.629989376233116,
+      "gap": "1.2vw",
+      "bg": "#ffffff",
+      "elements": [
+        {
+          "id": "item_1",
+          "type": "image",
+          "cloudinaryPublicId": "https://res.cloudinary.com/jkxwp5hj/image/upload/f_auto,q_auto/DSC_0049.JPG",
+          "originalFilename": "DSC_0049.JPG",
+          "effect": "none",
+          "rect": {
+            "x": "0.9%",
+            "y": "2.3%",
+            "width": "47.5%",
+            "height": "46.7%",
+            "rotation": 0,
+            "zIndex": 1
+          },
+          "cloudinaryTransform": {
+            "crop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": 0
+            },
+            "innerCrop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": 0,
+              "aspectRatioLocked": true
+            },
+            "mask": {
+              "active": false,
+              "id": "none",
+              "styleString": ""
+            },
+            "filters": {
+              "preset": "original",
+              "values": {
+                "brightness": 100,
+                "contrast": 100,
+                "saturate": 100,
+                "blur": 0,
+                "hueRotate": 0
+              },
+              "cssString": "none"
+            }
+          }
+        },
+        {
+          "id": "item_2",
+          "type": "image",
+          "cloudinaryPublicId": "https://res.cloudinary.com/jkxwp5hj/image/upload/f_auto,q_auto/DSC_0078.JPG",
+          "originalFilename": "DSC_0078.JPG",
+          "effect": "none",
+          "rect": {
+            "x": "51.6%",
+            "y": "5.4%",
+            "width": "46.9%",
+            "height": "89.7%",
+            "rotation": 0,
+            "zIndex": 2
+          },
+          "cloudinaryTransform": {
+            "crop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": 0
+            },
+            "innerCrop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": 0,
+              "aspectRatioLocked": true
+            },
+            "mask": {
+              "active": false,
+              "id": "none",
+              "styleString": ""
+            },
+            "filters": {
+              "preset": "original",
+              "values": {
+                "brightness": 100,
+                "contrast": 100,
+                "saturate": 100,
+                "blur": 0,
+                "hueRotate": 0
+              },
+              "cssString": "none"
+            }
+          }
+        },
+        {
+          "id": "item_3",
+          "type": "image",
+          "cloudinaryPublicId": "https://res.cloudinary.com/jkxwp5hj/image/upload/f_auto,q_auto/DSC_0069.JPG",
+          "originalFilename": "DSC_0069.JPG",
+          "effect": "none",
+          "rect": {
+            "x": "0.4%",
+            "y": "50.9%",
+            "width": "47.8%",
+            "height": "49.1%",
+            "rotation": 0,
+            "zIndex": 3
+          },
+          "cloudinaryTransform": {
+            "crop": {
+              "zoom": 1.8,
+              "offsetX": -80,
+              "offsetY": -63
+            },
+            "innerCrop": {
+              "zoom": 1.8,
+              "offsetX": -80,
+              "offsetY": -63
+            },
+            "mask": {
+              "active": false,
+              "id": "none",
+              "styleString": ""
+            },
+            "filters": {
+              "preset": "original",
+              "values": {
+                "brightness": 100,
+                "contrast": 100,
+                "saturate": 100,
+                "blur": 0,
+                "hueRotate": 0
+              },
+              "cssString": "none"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pageIndex": 5,
+      "folder": "pg 8_9",
+      "template": "picture_in_picture_black_border",
+      "aspectRatio": 2.629989376233116,
+      "elements": [
+        {
+          "id": "item_1",
+          "type": "image",
+          "cloudinaryPublicId": "https://res.cloudinary.com/jkxwp5hj/image/upload/f_auto,q_auto/DSC_0160.JPG",
+          "originalFilename": "DSC_0160.JPG",
+          "effect": "none",
+          "rect": {
+            "x": "1.9%",
+            "y": "3.1%",
+            "width": "18.5%",
+            "height": "40.1%",
+            "rotation": 0,
+            "zIndex": 1
+          },
+          "cloudinaryTransform": {
+            "crop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": 0
+            },
+            "innerCrop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": 0,
+              "aspectRatioLocked": true
+            },
+            "mask": {
+              "active": false,
+              "id": "none",
+              "styleString": ""
+            },
+            "filters": {
+              "preset": "original",
+              "values": {
+                "brightness": 100,
+                "contrast": 100,
+                "saturate": 100,
+                "blur": 0,
+                "hueRotate": 0
+              },
+              "cssString": "none"
+            }
+          }
+        },
+        {
+          "id": "item_2",
+          "type": "image",
+          "cloudinaryPublicId": "https://res.cloudinary.com/jkxwp5hj/image/upload/f_auto,q_auto/v1784975418/DSC_0081_feblep.jpg",
+          "originalFilename": "DSC_0081.JPG",
+          "effect": "none",
+          "rect": {
+            "x": "22%",
+            "y": "4.3%",
+            "width": "33.9%",
+            "height": "87.7%",
+            "rotation": 0,
+            "zIndex": 2
+          },
+          "cloudinaryTransform": {
+            "crop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": 0
+            },
+            "innerCrop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": 0,
+              "aspectRatioLocked": true
+            },
+            "mask": {
+              "active": false,
+              "id": "none",
+              "styleString": ""
+            },
+            "filters": {
+              "preset": "original",
+              "values": {
+                "brightness": 100,
+                "contrast": 100,
+                "saturate": 100,
+                "blur": 0,
+                "hueRotate": 0
+              },
+              "cssString": "none"
+            }
+          }
+        },
+        {
+          "id": "item_3",
+          "type": "image",
+          "cloudinaryPublicId": "https://res.cloudinary.com/jkxwp5hj/image/upload/f_auto,q_auto/DSC_0089.JPG",
+          "originalFilename": "DSC_0089.JPG",
+          "effect": "none",
+          "rect": {
+            "x": "57.3%",
+            "y": "50.4%",
+            "width": "40%",
+            "height": "42%",
+            "rotation": 0,
+            "zIndex": 3
+          },
+          "cloudinaryTransform": {
+            "crop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": 0
+            },
+            "innerCrop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": 0,
+              "aspectRatioLocked": true
+            },
+            "mask": {
+              "active": false,
+              "id": "none",
+              "styleString": ""
+            },
+            "filters": {
+              "preset": "original",
+              "values": {
+                "brightness": 100,
+                "contrast": 100,
+                "saturate": 100,
+                "blur": 0,
+                "hueRotate": 0
+              },
+              "cssString": "none"
+            }
+          }
+        },
+        {
+          "id": "item_4",
+          "type": "image",
+          "cloudinaryPublicId": "https://res.cloudinary.com/jkxwp5hj/image/upload/f_auto,q_auto/DSC_0140.JPG",
+          "originalFilename": "DSC_0140.JPG",
+          "effect": "none",
+          "rect": {
+            "x": "1.9%",
+            "y": "45.9%",
+            "width": "18.4%",
+            "height": "46.6%",
+            "rotation": 0,
+            "zIndex": 4
+          },
+          "cloudinaryTransform": {
+            "crop": {
+              "zoom": 1.25,
+              "offsetX": 6,
+              "offsetY": -3
+            },
+            "innerCrop": {
+              "zoom": 1.25,
+              "offsetX": 6,
+              "offsetY": -3,
+              "aspectRatioLocked": true
+            },
+            "mask": {
+              "active": false,
+              "id": "none",
+              "styleString": ""
+            },
+            "filters": {
+              "preset": "original",
+              "values": {
+                "brightness": 100,
+                "contrast": 100,
+                "saturate": 100,
+                "blur": 0,
+                "hueRotate": 0
+              },
+              "cssString": "none"
+            }
+          }
+        },
+        {
+          "id": "item_5",
+          "type": "image",
+          "cloudinaryPublicId": "https://res.cloudinary.com/jkxwp5hj/image/upload/f_auto,q_auto/DSC_0159.JPG",
+          "originalFilename": "DSC_0159.JPG",
+          "effect": "none",
+          "rect": {
+            "x": "57.5%",
+            "y": "6.3%",
+            "width": "40%",
+            "height": "42%",
+            "rotation": 0,
+            "zIndex": 5
+          },
+          "cloudinaryTransform": {
+            "crop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": 0
+            },
+            "innerCrop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": 0,
+              "aspectRatioLocked": true
+            },
+            "mask": {
+              "active": false,
+              "id": "none",
+              "styleString": ""
+            },
+            "filters": {
+              "preset": "original",
+              "values": {
+                "brightness": 100,
+                "contrast": 100,
+                "saturate": 100,
+                "blur": 0,
+                "hueRotate": 0
+              },
+              "cssString": "none"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pageIndex": 6,
+      "folder": "pg 10_11",
+      "elements": [
+        {
+          "id": "item_1",
+          "type": "image",
+          "cloudinaryPublicId": "https://res.cloudinary.com/jkxwp5hj/image/upload/f_auto,q_auto/DSCN4892.JPG",
+          "originalFilename": "DSCN4892.JPG",
+          "effect": "none",
+          "rect": {
+            "x": "3%",
+            "y": "5%",
+            "width": "45%",
+            "height": "90%",
+            "rotation": 0,
+            "zIndex": 1
+          },
+          "cloudinaryTransform": {
+            "crop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": 0
+            },
+            "innerCrop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": 0,
+              "aspectRatioLocked": true
+            },
+            "mask": {
+              "active": false,
+              "id": "none",
+              "styleString": ""
+            },
+            "filters": {
+              "preset": "original",
+              "values": {
+                "brightness": 100,
+                "contrast": 100,
+                "saturate": 100,
+                "blur": 0,
+                "hueRotate": 0
+              },
+              "cssString": "none"
+            }
+          }
+        },
+        {
+          "id": "item_2",
+          "type": "image",
+          "cloudinaryPublicId": "https://res.cloudinary.com/jkxwp5hj/image/upload/f_auto,q_auto/DSC_0294.JPG",
+          "originalFilename": "DSC_0294.JPG",
+          "effect": "none",
+          "rect": {
+            "x": "51.9%",
+            "y": "5.2%",
+            "width": "45%",
+            "height": "90%",
+            "rotation": 0,
+            "zIndex": 2
+          },
+          "cloudinaryTransform": {
+            "crop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": 0
+            },
+            "innerCrop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": 0,
+              "aspectRatioLocked": true
+            },
+            "mask": {
+              "active": false,
+              "id": "none",
+              "styleString": ""
+            },
+            "filters": {
+              "preset": "original",
+              "values": {
+                "brightness": 100,
+                "contrast": 100,
+                "saturate": 100,
+                "blur": 0,
+                "hueRotate": 0
+              },
+              "cssString": "none"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pageIndex": 7,
+      "folder": "pg 12_13",
+      "elements": [
+        {
+          "id": "item_1",
+          "type": "image",
+          "cloudinaryPublicId": "https://res.cloudinary.com/jkxwp5hj/image/upload/f_auto,q_auto/DSC_0156.JPG",
+          "originalFilename": "DSC_0156.JPG",
+          "effect": "none",
+          "rect": {
+            "x": "2.6%",
+            "y": "4.4%",
+            "width": "45%",
+            "height": "90%",
+            "rotation": 0,
+            "zIndex": 1
+          },
+          "cloudinaryTransform": {
+            "crop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": 0
+            },
+            "innerCrop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": 0,
+              "aspectRatioLocked": true
+            },
+            "mask": {
+              "active": false,
+              "id": "none",
+              "styleString": ""
+            },
+            "filters": {
+              "preset": "original",
+              "values": {
+                "brightness": 100,
+                "contrast": 100,
+                "saturate": 100,
+                "blur": 0,
+                "hueRotate": 0
+              },
+              "cssString": "none"
+            }
+          }
+        },
+        {
+          "id": "item_2",
+          "type": "image",
+          "cloudinaryPublicId": "https://res.cloudinary.com/jkxwp5hj/image/upload/f_auto,q_auto/DSC_0222.JPG",
+          "originalFilename": "DSC_0222.JPG",
+          "effect": "none",
+          "rect": {
+            "x": "52.9%",
+            "y": "5%",
+            "width": "45%",
+            "height": "90%",
+            "rotation": 0,
+            "zIndex": 2
+          },
+          "cloudinaryTransform": {
+            "crop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": 0
+            },
+            "innerCrop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": 0,
+              "aspectRatioLocked": true
+            },
+            "mask": {
+              "active": false,
+              "id": "none",
+              "styleString": ""
+            },
+            "filters": {
+              "preset": "original",
+              "values": {
+                "brightness": 100,
+                "contrast": 100,
+                "saturate": 100,
+                "blur": 0,
+                "hueRotate": 0
+              },
+              "cssString": "none"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pageIndex": 8,
+      "folder": "pg 14_15",
+      "elements": [
+        {
+          "id": "item_1",
+          "type": "video",
+          "cloudinaryPublicId": "https://res.cloudinary.com/jkxwp5hj/video/upload/f_auto,q_auto,so_0/v1785076551/matrimonio_comune1_s6qf1i.jpg",
+          "originalFilename": "matrimonio_comune1_s6qf1i.jpg",
+          "videoSettings": {
+            "autoplay": false,
+            "playOnHover": true,
+            "loop": true,
+            "muted": true,
+            "controls": true,
+            "startOffset": 0
+          },
+          "effect": "none",
+          "rect": {
+            "x": "53.9%",
+            "y": "8.2%",
+            "width": "43.7%",
+            "height": "84.8%",
+            "rotation": 0,
+            "zIndex": 1
+          },
+          "cloudinaryTransform": {
+            "crop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": -4
+            },
+            "innerCrop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": -4,
+              "aspectRatioLocked": true
+            },
+            "mask": {
+              "active": false,
+              "id": "none",
+              "styleString": ""
+            },
+            "filters": {
+              "preset": "original",
+              "values": {
+                "brightness": 100,
+                "contrast": 100,
+                "saturate": 100,
+                "blur": 0,
+                "hueRotate": 0
+              },
+              "cssString": "none"
+            }
+          }
+        },
+        {
+          "id": "item_2",
+          "type": "image",
+          "cloudinaryPublicId": "https://album-matrimonio-fabio-tiziana.vercel.app/pg%2014_15/DSCN4914.JPG%20ft.JPG",
+          "originalFilename": "DSCN4914.JPG%20ft.JPG",
+          "effect": "none",
+          "rect": {
+            "x": "7.9%",
+            "y": "8.2%",
+            "width": "31.2%",
+            "height": "54.7%",
+            "rotation": 0,
+            "zIndex": 2
+          },
+          "cloudinaryTransform": {
+            "crop": {
+              "zoom": 1.1,
+              "offsetX": 14,
+              "offsetY": 13
+            },
+            "innerCrop": {
+              "zoom": 1.1,
+              "offsetX": 14,
+              "offsetY": 13,
+              "aspectRatioLocked": true
+            },
+            "mask": {
+              "active": false,
+              "id": "none",
+              "styleString": ""
+            },
+            "filters": {
+              "preset": "original",
+              "values": {
+                "brightness": 100,
+                "contrast": 100,
+                "saturate": 100,
+                "blur": 0,
+                "hueRotate": 0
+              },
+              "cssString": "none"
+            }
+          }
+        },
+        {
+          "id": "item_3",
+          "type": "image",
+          "cloudinaryPublicId": "https://album-matrimonio-fabio-tiziana.vercel.app/pg%2014_15/DSCN4897.JPG%20ft.JPG",
+          "originalFilename": "DSCN4897.JPG%20ft.JPG",
+          "effect": "none",
+          "rect": {
+            "x": "8.8%",
+            "y": "64.4%",
+            "width": "28.7%",
+            "height": "35%",
+            "rotation": 0,
+            "zIndex": 3
+          },
+          "cloudinaryTransform": {
+            "crop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": 0
+            },
+            "innerCrop": {
+              "zoom": 1,
+              "offsetX": 0,
+              "offsetY": 0,
+              "aspectRatioLocked": true
+            },
+            "mask": {
+              "active": false,
+              "id": "none",
+              "styleString": ""
+            },
+            "filters": {
+              "preset": "original",
+              "values": {
+                "brightness": 100,
+                "contrast": 100,
+                "saturate": 100,
+                "blur": 0,
+                "hueRotate": 0
+              },
+              "cssString": "none"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pageIndex": 9,
+      "folder": "pg 16_17",
+      "elements": [
+        {
+          "id": "item_1",
+          "type": "image",
+          "cloudinaryPublicId": "https://album-matrimonio-fabio-tiziana.vercel.app/pg%2016_17/DSC_0270.JPG",
+          "originalFilename": "DSC_0270.JPG",
+          "effect": "none",
+          "rect": {
+            "x": "0.1%",
+            "y": "0%",
+            "width": "99.9%",
+            "height": "119.3%",
+            "rotation": 0,
+            "zIndex": 1
+          },
+          "cloudinaryTransform": {
+            "crop": {
+              "zoom": 1,
+              "offsetX": 1,
+              "offsetY": -90
+            },
+            "innerCrop": {
+              "zoom": 1,
+              "offsetX": 1,
+              "offsetY": -90,
+              "aspectRatioLocked": true
+            },
+            "mask": {
+              "active": false,
+              "id": "none",
+              "styleString": ""
+            },
+            "filters": {
+              "preset": "original",
+              "values": {
+                "brightness": 100,
+                "contrast": 100,
+                "saturate": 100,
+                "blur": 0,
+                "hueRotate": 0
+              },
+              "cssString": "none"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

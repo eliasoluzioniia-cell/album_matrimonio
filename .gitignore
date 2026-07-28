@@ -22,16 +22,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-# PDF pesanti
-*.pdf
-
-# Dump di backup/esportazione JSON nella root (mantiene tracciato src/layoutCoordinates.json per Vercel)
-layoutCoordinates_*.json
-
-# Esclusione foto pesanti locali in public per Soluzione B (100% Cloudinary)
-public/pg*
-public/login/*.JPG
-public/login/*.jpg
-public/login/*.jpeg
-public/login/*.png

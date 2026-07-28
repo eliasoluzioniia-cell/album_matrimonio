@@ -37,8 +37,8 @@ export function isVideoFile(src) {
 }
 
 /**
- * Genera l'URL ottimizzato di Cloudinary per un'immagine,
- * risolvendo al volo Public ID, URL completi e trasformazioni c_crop.
+ * Genera l'URL ottimizzato per un'immagine,
+ * risolvendo con intelligenza sia Cloudinary CDN sia le immagini locali su Vercel.
  */
 export function getCloudinaryUrl(publicIdOrSrc, options = {}) {
   if (!publicIdOrSrc) return '';
@@ -49,13 +49,13 @@ export function getCloudinaryUrl(publicIdOrSrc, options = {}) {
 
   let inputSrc = publicIdOrSrc;
 
-  // Se è un URL di vercel o locale, estrai il nome file per mapparlo su Cloudinary
+  // Se è un URL di vercel completo, estrai il nome file per mapparlo
   if (inputSrc.includes('vercel.app')) {
     const parts = inputSrc.split('/');
     inputSrc = decodeURIComponent(parts.pop());
   }
 
-  // Se è già un URL completo di Cloudinary
+  // Se è già un URL completo http/https
   if (inputSrc.startsWith('http://') || inputSrc.startsWith('https://')) {
     let finalUrl = inputSrc.replace(/matrimonio%20fabio%20tiziana\//g, '').replace(/matrimonio_fabio_tiziana\//g, '');
     if (options.cropParams && options.cropParams.w && options.cropParams.h) {
@@ -76,15 +76,23 @@ export function getCloudinaryUrl(publicIdOrSrc, options = {}) {
   const fileName = cleanId.split('/').pop();
   const rawBaseName = fileName.replace(/\.[^/.]+$/, "");
 
-  // Verifica se esiste una mappatura esplicita per questo file
-  if (CLOUDINARY_PUBLIC_MAP[fileName]) {
-    cleanId = CLOUDINARY_PUBLIC_MAP[fileName];
-  } else if (CLOUDINARY_PUBLIC_MAP[cleanId]) {
-    cleanId = CLOUDINARY_PUBLIC_MAP[cleanId];
-  } else if (CLOUDINARY_PUBLIC_MAP[rawBaseName]) {
-    cleanId = CLOUDINARY_PUBLIC_MAP[rawBaseName];
+  // Se è un percorso locale (es. /login/IMG_2281.JPG) e non ha un Public ID mappato su Cloudinary, usa il file locale Vercel!
+  if (inputSrc.startsWith('/')) {
+    if (CLOUDINARY_PUBLIC_MAP[fileName] || CLOUDINARY_PUBLIC_MAP[cleanId] || CLOUDINARY_PUBLIC_MAP[rawBaseName]) {
+      cleanId = CLOUDINARY_PUBLIC_MAP[fileName] || CLOUDINARY_PUBLIC_MAP[cleanId] || CLOUDINARY_PUBLIC_MAP[rawBaseName];
+    } else {
+      return inputSrc;
+    }
   } else {
-    cleanId = encodeURIComponent(fileName);
+    if (CLOUDINARY_PUBLIC_MAP[fileName]) {
+      cleanId = CLOUDINARY_PUBLIC_MAP[fileName];
+    } else if (CLOUDINARY_PUBLIC_MAP[cleanId]) {
+      cleanId = CLOUDINARY_PUBLIC_MAP[cleanId];
+    } else if (CLOUDINARY_PUBLIC_MAP[rawBaseName]) {
+      cleanId = CLOUDINARY_PUBLIC_MAP[rawBaseName];
+    } else {
+      cleanId = encodeURIComponent(fileName);
+    }
   }
 
   const transforms = [];
@@ -126,6 +134,10 @@ export function getCloudinaryVideoUrl(publicIdOrSrc) {
   let cleanId = inputSrc.replace(/^\//, '');
   const fileName = cleanId.split('/').pop();
   const rawBaseName = fileName.replace(/\.[^/.]+$/, "");
+
+  if (inputSrc.startsWith('/') && !CLOUDINARY_PUBLIC_MAP[fileName] && !CLOUDINARY_PUBLIC_MAP[rawBaseName]) {
+    return inputSrc;
+  }
 
   if (CLOUDINARY_PUBLIC_MAP[fileName]) {
     cleanId = CLOUDINARY_PUBLIC_MAP[fileName];
@@ -174,6 +186,10 @@ export function getCloudinaryVideoPosterUrl(publicIdOrSrc, options = {}) {
   let cleanId = inputSrc.replace(/^\//, '');
   const fileName = cleanId.split('/').pop();
   const rawBaseName = fileName.replace(/\.[^/.]+$/, "");
+
+  if (inputSrc.startsWith('/') && !CLOUDINARY_PUBLIC_MAP[fileName] && !CLOUDINARY_PUBLIC_MAP[rawBaseName]) {
+    return inputSrc.replace(/\.(mp4|mov|webm|m4v)$/i, '') + '.jpg';
+  }
 
   if (CLOUDINARY_PUBLIC_MAP[fileName]) {
     cleanId = CLOUDINARY_PUBLIC_MAP[fileName];

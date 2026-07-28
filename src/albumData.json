@@ -1,11 +1,11 @@
 {
-  "login": "https://res.cloudinary.com/jkxwp5hj/image/upload/f_auto,q_auto/IMG_2281",
+  "login": "/login/IMG_2281.JPG",
   "pages": [
     {
       "name": "pg 1",
       "isSpread": false,
       "images": [
-        "https://res.cloudinary.com/jkxwp5hj/image/upload/f_auto,q_auto/IMG_2281"
+        "/login/IMG_2281.JPG"
       ]
     },
     {

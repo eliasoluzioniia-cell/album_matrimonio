@@ -8,7 +8,7 @@
       {
         "id": "item_1",
         "type": "image",
-        "cloudinaryPublicId": "https://res.cloudinary.com/jkxwp5hj/image/upload/f_auto,q_auto/IMG_2281",
+        "cloudinaryPublicId": "/login/IMG_2281.JPG",
         "originalFilename": "IMG_2281.JPG",
         "effect": "none",
         "rect": {
