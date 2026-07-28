@@ -37,6 +37,42 @@ export function isVideoFile(src) {
 }
 
 /**
+ * Pulisce ed ottimizzi un URL completo http/https di Cloudinary
+ */
+function normalizeCloudinaryHttpUrl(url) {
+  let finalUrl = url
+    .replace(/matrimonio%20fabio%20tiziana\//gi, '')
+    .replace(/matrimonio_fabio_tiziana\//gi, '')
+    .replace(/pg%20\d+_\d+\//gi, '')
+    .replace(/pg\s\d+_\d+\//gi, '')
+    .replace(/pg%201\//gi, '')
+    .replace(/pg\s1\//gi, '');
+
+  if (finalUrl.includes('/upload/')) {
+    const parts = finalUrl.split('/upload/');
+    const pathPart = parts[1] || '';
+    const pathTokens = pathPart.split('/');
+    const rawFileName = pathTokens.pop();
+    const cleanFileName = decodeURIComponent(rawFileName);
+    const rawBaseName = cleanFileName.replace(/\.[^/.]+$/, "");
+
+    let mappedPublicId = null;
+    if (CLOUDINARY_PUBLIC_MAP[cleanFileName]) {
+      mappedPublicId = CLOUDINARY_PUBLIC_MAP[cleanFileName];
+    } else if (CLOUDINARY_PUBLIC_MAP[rawBaseName]) {
+      mappedPublicId = CLOUDINARY_PUBLIC_MAP[rawBaseName];
+    }
+
+    if (mappedPublicId) {
+      const transformToken = pathTokens.join('/');
+      return `${CLOUDINARY_BASE_URL}/image/upload/${transformToken ? transformToken + '/' : ''}${mappedPublicId}`;
+    }
+  }
+
+  return finalUrl;
+}
+
+/**
  * Genera l'URL ottimizzato per un'immagine,
  * risolvendo con intelligenza sia Cloudinary CDN sia le immagini locali su Vercel.
  */
@@ -57,7 +93,7 @@ export function getCloudinaryUrl(publicIdOrSrc, options = {}) {
 
   // Se è già un URL completo http/https
   if (inputSrc.startsWith('http://') || inputSrc.startsWith('https://')) {
-    let finalUrl = inputSrc.replace(/matrimonio%20fabio%20tiziana\//g, '').replace(/matrimonio_fabio_tiziana\//g, '');
+    let finalUrl = normalizeCloudinaryHttpUrl(inputSrc);
     if (options.cropParams && options.cropParams.w && options.cropParams.h) {
       const { w, h, x, y } = options.cropParams;
       const cropStr = `c_crop,w_${Math.round(w)},h_${Math.round(h)},x_${Math.round(x || 0)},y_${Math.round(y || 0)},f_auto,q_auto`;
@@ -128,7 +164,7 @@ export function getCloudinaryVideoUrl(publicIdOrSrc) {
   }
 
   if (inputSrc.startsWith('http://') || inputSrc.startsWith('https://')) {
-    return inputSrc.replace(/matrimonio%20fabio%20tiziana\//g, '').replace(/matrimonio_fabio_tiziana\//g, '');
+    return normalizeCloudinaryHttpUrl(inputSrc);
   }
 
   let cleanId = inputSrc.replace(/^\//, '');
@@ -170,7 +206,7 @@ export function getCloudinaryVideoPosterUrl(publicIdOrSrc, options = {}) {
   }
 
   if (inputSrc.startsWith('http://') || inputSrc.startsWith('https://')) {
-    let posterUrl = inputSrc.replace(/matrimonio%20fabio%20tiziana\//g, '').replace(/matrimonio_fabio_tiziana\//g, '').replace(/\.(mp4|mov|webm|m4v)$/i, '.jpg');
+    let posterUrl = normalizeCloudinaryHttpUrl(inputSrc).replace(/\.(mp4|mov|webm|m4v)$/i, '.jpg');
     if (posterUrl.includes('/video/upload/')) {
       if (!posterUrl.includes(`so_${startOffset}`)) {
         return posterUrl.replace('/video/upload/', `/video/upload/f_auto,q_auto,so_${startOffset}/`);
