@@ -377,7 +377,10 @@ export default function FlipbookViewer() {
   const renderPages = () => {
     const elements = [];
     pagesData.forEach((pageData, index) => {
-      if (!pageData || !pageData.images || pageData.images.length === 0) return;
+      if (!pageData) return;
+      const pageCoord = layoutCoords.find(c => c.folder === pageData.name || (pageData.name === 'pg 1' && c.folder === 'login'));
+      const hasContent = (pageData.images && pageData.images.length > 0) || (pageCoord && pageCoord.elements && pageCoord.elements.length > 0);
+      if (!hasContent) return;
 
       if (pageData.isSpread) {
         elements.push(
