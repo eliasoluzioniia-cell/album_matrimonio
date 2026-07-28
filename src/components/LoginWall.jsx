@@ -39,7 +39,7 @@ export default function LoginWall({ onLogin }) {
     }
   };
 
-  const bgImage = albumData.login ? `url('${encodeURI(albumData.login)}')` : 'none';
+  const bgImage = albumData.login ? `url('${albumData.login}')` : 'none';
 
   return (
     <div 
