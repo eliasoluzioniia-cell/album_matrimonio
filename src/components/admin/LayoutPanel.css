@@ -1,0 +1,283 @@
+/* LayoutPanel.css - Sidebar clone per gestione Layout Presets */
+
+.layout-panel-sidebar {
+  width: 340px;
+  min-width: 340px;
+  max-width: 340px;
+  height: 100%;
+  background-color: #ffffff;
+  border-left: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.05);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #1e293b;
+  box-sizing: border-box;
+  overflow: hidden;
+  user-select: none;
+  z-index: 100;
+}
+
+/* 1. Header */
+.layout-panel-header {
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.layout-panel-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.layout-close-btn {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.layout-close-btn:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+/* Barra Strumenti Principale */
+.layout-action-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 12px;
+  background-color: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.layout-action-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 8px 6px;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease-in-out;
+}
+
+.layout-action-btn:hover {
+  background-color: #f1f5f9;
+  border-color: #94a3b8;
+  color: #0f172a;
+}
+
+.layout-action-btn.highlight {
+  background-color: #eff6ff;
+  border-color: #93c5fd;
+  color: #1d4ed8;
+}
+
+.layout-action-btn.highlight:hover {
+  background-color: #dbeafe;
+  border-color: #3b82f6;
+  color: #1e40af;
+}
+
+/* 2. Filtri 2x2 Grid */
+.layout-filter-section {
+  padding: 12px 14px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 12px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.filter-group label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.filter-group select {
+  width: 100%;
+  padding: 6px 8px;
+  font-size: 0.8rem;
+  color: #1e293b;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.filter-group select:focus {
+  border-color: #2563eb;
+  background-color: #ffffff;
+}
+
+.filter-checkbox-row {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: #475569;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  accent-color: #2563eb;
+  cursor: pointer;
+}
+
+/* 3. Griglia Miniature (Gallery) */
+.layout-gallery-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px;
+  background-color: #f8fafc;
+}
+
+.no-presets-message {
+  text-align: center;
+  padding: 30px 10px;
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+.layout-gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Card Wireframe Vettoriale */
+.wireframe-card {
+  position: relative;
+  background-color: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.wireframe-card:hover {
+  border-color: #3b82f6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+.wireframe-card.active {
+  border-color: #0066cc;
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.25);
+  background-color: #f0f7ff;
+}
+
+.fav-toggle-btn {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  backdrop-filter: blur(2px);
+  transition: transform 0.15s;
+}
+
+.fav-toggle-btn:hover {
+  transform: scale(1.15);
+}
+
+/* Rettangolo Wireframe Doppia Pagina (16:9 approx) */
+.wireframe-spread {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.85 / 1;
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.wireframe-spine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background-color: #cbd5e1;
+  z-index: 5;
+}
+
+/* Riquadri Foto Grigi con Icona Sole/Montagna */
+.wireframe-photo-box {
+  position: absolute;
+  background-color: #c8c8c8;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.sun-mountain-icon {
+  width: 16px;
+  height: 16px;
+  color: #71717a;
+  opacity: 0.8;
+}
+
+.preset-card-title {
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: #64748b;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

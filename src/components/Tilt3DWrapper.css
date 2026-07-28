@@ -1,0 +1,25 @@
+/* Tilt3DWrapper.css - Stili per l'effetto 3D Parallax Tilt */
+
+.tilt-3d-container {
+  position: relative;
+  transition: transform 0.15s ease-out, box-shadow 0.2s ease-out;
+  transform-style: preserve-3d;
+  will-change: transform;
+  border-radius: 8px;
+}
+
+.tilt-3d-container.hovered {
+  z-index: 50 !important;
+}
+
+.tilt-glare-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 8px;
+  pointer-events: none;
+  z-index: 15;
+  transition: opacity 0.2s ease-out;
+}

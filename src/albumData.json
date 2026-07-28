@@ -1,0 +1,88 @@
+{
+  "login": "/login/IMG_2281.JPG",
+  "pages": [
+    {
+      "name": "pg 1",
+      "isSpread": false,
+      "images": [
+        "/login/IMG_2281.JPG"
+      ]
+    },
+    {
+      "name": "pg 2_3",
+      "isSpread": true,
+      "images": [
+        "/pg 2_3/DSC_0040.JPG",
+        "/pg 2_3/DSC_0060.JPG",
+        "/pg 2_3/DSC_0061.JPG",
+        "/pg 2_3/DSC_0077.JPG"
+      ]
+    },
+    {
+      "name": "pg 4_5",
+      "isSpread": true,
+      "images": [
+        "/pg 4_5/DSC_0084.JPG",
+        "/pg 4_5/DSC_0106.JPG",
+        "/pg 4_5/DSC_0112.JPG"
+      ]
+    },
+    {
+      "name": "pg 6_7",
+      "isSpread": true,
+      "images": [
+        "/pg 6_7/DSC_0049.JPG",
+        "/pg 6_7/DSC_0069.JPG",
+        "/pg 6_7/DSC_0078.JPG"
+      ]
+    },
+    {
+      "name": "pg 8_9",
+      "isSpread": true,
+      "images": [
+        "/pg 8_9/DSC_0081.JPG",
+        "/pg 8_9/DSC_0089.JPG",
+        "/pg 8_9/DSC_0140.JPG",
+        "/pg 8_9/DSC_0159.JPG",
+        "/pg 8_9/DSC_0160.JPG",
+        "/pg 8_9/DSC_0163.JPG"
+      ]
+    },
+    {
+      "name": "pg 10_11",
+      "isSpread": true,
+      "images": [
+        "/pg 10_11/DSCN4892.JPG",
+        "/pg 10_11/DSC_0294.JPG",
+        "/pg 10_11/SAM_9057.JPG"
+      ]
+    },
+    {
+      "name": "pg 12_13",
+      "isSpread": true,
+      "images": [
+        "/pg 12_13/DSC_0156.JPG",
+        "/pg 12_13/DSC_0222.JPG"
+      ]
+    },
+    {
+      "name": "pg 14_15",
+      "isSpread": true,
+      "images": [
+        "/pg 14_15/DSCN4897.JPG ft.JPG",
+        "/pg 14_15/DSCN4898.JPG ft.JPG",
+        "/pg 14_15/DSCN4914.JPG ft.JPG",
+        "/pg 14_15/DSCN4917.JPG ft.JPG",
+        "/pg 14_15/DSCN4918.JPG ft.JPG",
+        "/pg 14_15/al comune.JPG"
+      ]
+    },
+    {
+      "name": "pg 16_17",
+      "isSpread": true,
+      "images": [
+        "/pg 16_17/DSC_0270.JPG"
+      ]
+    }
+  ]
+}

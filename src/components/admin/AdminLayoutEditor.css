@@ -1,0 +1,627 @@
+/* AdminLayoutEditor.css - Dashboard Layout Editor Amministratore */
+
+.admin-editor-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0f172a;
+  color: #f8fafc;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Toast Notifica */
+.admin-toast {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #0066cc;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(0, 102, 204, 0.4);
+  z-index: 9999;
+  animation: fadeInDown 0.3s ease;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translate(-50%, -20px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* Topbar Admin */
+.admin-topbar {
+  height: 56px;
+  background-color: #1e293b;
+  border-bottom: 1px solid #334155;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  z-index: 50;
+}
+
+.admin-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-logo {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+  letter-spacing: -0.3px;
+}
+
+.admin-badge {
+  background-color: #3b82f6;
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 10px;
+  letter-spacing: 0.5px;
+}
+
+.admin-topbar-center {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-nav-page-btn {
+  background: #334155;
+  border: 1px solid #475569;
+  color: #f8fafc;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.admin-nav-page-btn:hover:not(:disabled) {
+  background: #475569;
+  border-color: #64748b;
+}
+
+.admin-nav-page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.admin-page-indicator {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.admin-page-indicator strong {
+  color: #ffffff;
+}
+
+.admin-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s ease-in-out;
+}
+
+.admin-btn.secondary {
+  background-color: #334155;
+  color: #f8fafc;
+}
+
+.admin-btn.secondary:hover {
+  background-color: #475569;
+}
+
+.admin-btn.primary {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.admin-btn.primary:hover {
+  background-color: #1d4ed8;
+}
+
+.admin-btn.viewer-mode {
+  background-color: #059669;
+  color: #ffffff;
+}
+
+.admin-btn.viewer-mode:hover {
+  background-color: #047857;
+}
+
+/* Workspace */
+.admin-workspace {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Area Canvas Centrale */
+.admin-canvas-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #090d16;
+  overflow-y: auto;
+  padding: 16px 24px;
+}
+
+.canvas-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #1e293b;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+}
+
+.inner-crop-mode-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #f59e0b;
+  color: #0f172a;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.upload-photo-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background-color: #334155;
+  border: 1px dashed #64748b;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: #38bdf8;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.upload-photo-btn:hover {
+  background-color: #475569;
+  border-color: #38bdf8;
+}
+
+/* Viewport della Pagina (Doppia o Singola) */
+.canvas-spread-viewport {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  min-height: 420px;
+}
+
+.canvas-spread-sheet {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  aspect-ratio: 1.85 / 1;
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+/* Pagina Singola (Copertina e Retro) */
+.canvas-spread-sheet.single-page {
+  max-width: 520px;
+  aspect-ratio: 1 / 1.3;
+  margin: 0 auto;
+}
+
+.canvas-spine-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background-color: #e2e8f0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Frame Foto Canvas */
+.canvas-photo-frame {
+  position: absolute;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: #f1f5f9;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.canvas-photo-frame.selected {
+  outline: 2px solid #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+}
+
+/* Modalità Dual-Mode In-Place Crop (Stile Figma/Canva con opacità 40%) */
+.canvas-photo-frame.in-place-cropping {
+  overflow: visible !important;
+  outline: 2px dashed #f59e0b !important;
+  z-index: 999 !important;
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.4);
+}
+
+.canvas-photo-frame.in-place-cropping .frame-image-wrapper {
+  overflow: visible !important;
+}
+
+.canvas-photo-frame.in-place-cropping img {
+  opacity: 0.85;
+}
+
+.crop-ghost-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px dashed rgba(245, 158, 11, 0.8);
+  pointer-events: none;
+  background-image: 
+    linear-gradient(to right, rgba(245, 158, 11, 0.2) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(245, 158, 11, 0.2) 1px, transparent 1px);
+  background-size: 33.33% 33.33%;
+  z-index: 12;
+}
+
+.crop-mode-badge {
+  position: absolute;
+  top: -26px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f59e0b;
+  color: #0f172a;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* Stili per il Ritaglio a Foto Fissa (Overlay Crop Box) esatto come lo screenshot */
+.crop-fixed-underlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.35;
+  pointer-events: none;
+  filter: brightness(0.85);
+}
+
+.crop-box-active-overlay {
+  position: absolute;
+  border: 1.5px solid #ffffff;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0,0,0,0.5);
+  overflow: hidden;
+  z-index: 30;
+  pointer-events: auto;
+}
+
+.crop-grid-3x3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.75) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.75) 1px, transparent 1px);
+  background-size: 33.33% 33.33%;
+  z-index: 10;
+}
+
+.crop-handle-white {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #ffffff;
+  border: 1.5px solid #0066cc;
+  border-radius: 2px;
+  pointer-events: auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  z-index: 40;
+}
+
+.canvas-photo-frame.inner-crop-active {
+  border: 2px dashed #f59e0b !important;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.4);
+  overflow: visible !important;
+}
+
+.canvas-photo-frame.drag-target-hover {
+  border: 2px dashed #f59e0b !important;
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.75), 0 0 0 3px #f59e0b !important;
+  transform: scale(1.02);
+  transition: all 0.15s ease-out;
+}
+
+.frame-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.frame-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.05s ease-out, filter 0.2s ease;
+  transform-origin: center center;
+}
+
+.remove-img-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background-color: rgba(239, 68, 68, 0.85);
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 4px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s;
+  z-index: 30;
+}
+
+.canvas-photo-frame:hover .remove-img-btn {
+  opacity: 1;
+}
+
+.frame-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  gap: 4px;
+  font-size: 0.75rem;
+}
+
+.placeholder-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* 8 Maniglie esterne di ridimensionamento */
+.resize-handles-container {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  pointer-events: none;
+  z-index: 25;
+}
+
+.resize-handle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #ffffff;
+  border: 2px solid #0066cc;
+  border-radius: 2px;
+  pointer-events: auto;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+.handle-tl { top: 0; left: 0; cursor: nwse-resize; }
+.handle-tc { top: 0; left: 50%; transform: translateX(-50%); cursor: ns-resize; }
+.handle-tr { top: 0; right: 0; cursor: nesw-resize; }
+
+.handle-ml { top: 50%; left: 0; transform: translateY(-50%); cursor: ew-resize; }
+.handle-mr { top: 50%; right: 0; transform: translateY(-50%); cursor: ew-resize; }
+
+.handle-bl { bottom: 0; left: 0; cursor: nesw-resize; }
+.handle-bc { bottom: 0; left: 50%; transform: translateX(-50%); cursor: ns-resize; }
+.handle-br { bottom: 0; right: 0; cursor: nwse-resize; }
+
+/* 8 Maniglie Dorate per Ritaglio In-Place (Doppio Click) */
+.crop-handles-container {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  pointer-events: none;
+  z-index: 40;
+}
+
+.crop-handle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #f59e0b;
+  border: 2px solid #ffffff;
+  border-radius: 2px;
+  pointer-events: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 0 1px #f59e0b;
+  transition: transform 0.1s ease;
+}
+
+.crop-handle:hover {
+  transform: scale(1.3);
+  background-color: #fbbf24;
+}
+
+.crop-handle.handle-tl { top: 0; left: 0; cursor: nwse-resize; }
+.crop-handle.handle-tc { top: 0; left: 50%; transform: translateX(-50%); cursor: ns-resize; }
+.crop-handle.handle-tc:hover { transform: translateX(-50%) scale(1.3); }
+.crop-handle.handle-tr { top: 0; right: 0; cursor: nesw-resize; }
+
+.crop-handle.handle-ml { top: 50%; left: 0; transform: translateY(-50%); cursor: ew-resize; }
+.crop-handle.handle-ml:hover { transform: translateY(-50%) scale(1.3); }
+.crop-handle.handle-mr { top: 50%; right: 0; transform: translateY(-50%); cursor: ew-resize; }
+.crop-handle.handle-mr:hover { transform: translateY(-50%) scale(1.3); }
+
+.crop-handle.handle-bl { bottom: 0; left: 0; cursor: nesw-resize; }
+.crop-handle.handle-bc { bottom: 0; left: 50%; transform: translateX(-50%); cursor: ns-resize; }
+.crop-handle.handle-bc:hover { transform: translateX(-50%) scale(1.3); }
+.crop-handle.handle-br { bottom: 0; right: 0; cursor: nwse-resize; }
+
+/* Media Pool */
+.admin-media-pool {
+  margin-top: 16px;
+  background-color: #1e293b;
+  border-radius: 8px;
+  padding: 12px 16px;
+  border: 1px solid #334155;
+}
+
+.media-pool-title {
+  margin: 0 0 10px 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.media-pool-thumbnails {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.media-thumb-item {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  border-radius: 6px;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid #475569;
+}
+
+.media-thumb-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumb-remove-btn {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: rgba(239, 68, 68, 0.9);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.media-thumb-add {
+  width: 64px;
+  height: 64px;
+  border: 2px dashed #475569;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.media-thumb-add:hover {
+  border-color: #38bdf8;
+  color: #38bdf8;
+}
+
+/* Sidebar Tab Wrapper (4 Schede) */
+.sidebar-tab-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sidebar-tabs-nav {
+  display: flex;
+  background-color: #0f172a;
+  border-left: 1px solid #334155;
+  border-bottom: 1px solid #334155;
+}
+
+.tab-nav-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px 2px;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.tab-nav-btn:hover {
+  color: #f8fafc;
+  background-color: #1e293b;
+}
+
+.tab-nav-btn.active {
+  color: #38bdf8;
+  border-bottom-color: #38bdf8;
+  background-color: #1e293b;
+}

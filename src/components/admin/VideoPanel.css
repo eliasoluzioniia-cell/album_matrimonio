@@ -1,0 +1,121 @@
+/* VideoPanel.css - Stili per il Pannello Inspector Video */
+
+.video-panel-sidebar {
+  width: 320px;
+  background-color: #ffffff;
+  border-left: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.video-panel-header {
+  padding: 14px 16px;
+  background-color: #0f172a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.video-panel-title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.video-close-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-close-btn:hover {
+  background-color: #334155;
+  color: #ffffff;
+}
+
+.video-scroll-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: #f8fafc;
+}
+
+.video-section {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.video-toggles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.video-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.video-toggle-row:hover {
+  background-color: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+.toggle-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.toggle-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.toggle-desc {
+  font-size: 0.68rem;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.video-toggle-row input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #0284c7;
+  cursor: pointer;
+}
+
+.slider-hint {
+  font-size: 0.68rem;
+  color: #64748b;
+  margin-top: 4px;
+  line-height: 1.3;
+}
