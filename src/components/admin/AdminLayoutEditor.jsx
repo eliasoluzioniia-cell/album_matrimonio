@@ -51,7 +51,13 @@ export default function AdminLayoutEditor({ onSwitchToViewer }) {
       const saved = localStorage.getItem('admin_album_pages');
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          const hasPg1 = parsed.some(p => p.name === 'pg 1');
+          if (!hasPg1 && initialAlbumData.pages?.[0]?.name === 'pg 1') {
+            return [initialAlbumData.pages[0], ...parsed];
+          }
+          return parsed;
+        }
       }
     } catch (e) {
       console.warn("Errore lettura admin_album_pages da localStorage, ripristino default:", e);

@@ -41,17 +41,12 @@ allDirs.sort((a, b) => {
 
 // Aggiungi gli array di immagini trovate per ogni spread
 for (const dirName of allDirs) {
-  // Saltiamo la cartella "pg 1" perché contiene la foto usata in copertina e sfaserebbe gli spread a due pagine
-  if (dirName === 'pg 1') {
-    continue;
-  }
-
   const imgPaths = getImagesInFolder(dirName);
   const isSpread = dirName.includes('_');
   
   pages.push({
     name: dirName,
-    isSpread: isSpread,
+    isSpread: dirName === 'pg 1' ? false : isSpread,
     images: imgPaths
   });
 }

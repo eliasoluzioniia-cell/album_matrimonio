@@ -64,6 +64,8 @@ export function getCloudinaryUrl(publicIdOrSrc, options = {}) {
     cleanId = CLOUDINARY_PUBLIC_MAP[fileName];
   } else if (CLOUDINARY_PUBLIC_MAP[cleanId]) {
     cleanId = CLOUDINARY_PUBLIC_MAP[cleanId];
+  } else {
+    cleanId = cleanId.split('/').map(part => encodeURIComponent(part)).join('/');
   }
 
   const transforms = [];
@@ -101,6 +103,7 @@ export function getCloudinaryVideoUrl(publicIdOrSrc) {
   if (!cleanId.endsWith('.mp4') && !cleanId.endsWith('.mov') && !cleanId.endsWith('.webm')) {
     cleanId += '.mp4';
   }
+  cleanId = cleanId.split('/').map(part => encodeURIComponent(part)).join('/');
 
   return `${CLOUDINARY_BASE_URL}/video/upload/f_auto,q_auto/${cleanId}`;
 }
@@ -133,6 +136,7 @@ export function getCloudinaryVideoPosterUrl(publicIdOrSrc, options = {}) {
 
   let cleanId = publicIdOrSrc.replace(/^\//, '');
   cleanId = cleanId.replace(/\.(mp4|mov|webm|m4v)$/i, '') + '.jpg';
+  cleanId = cleanId.split('/').map(part => encodeURIComponent(part)).join('/');
 
   const transforms = [];
 
