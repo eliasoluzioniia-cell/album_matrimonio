@@ -1,11 +1,11 @@
 {
-  "login": "/login/IMG_2281.JPG",
+  "login": "https://res.cloudinary.com/jkxwp5hj/image/upload/f_auto,q_auto/matrimonio%20fabio%20tiziana/IMG_2281",
   "pages": [
     {
       "name": "pg 1",
       "isSpread": false,
       "images": [
-        "/login/IMG_2281.JPG"
+        "https://res.cloudinary.com/jkxwp5hj/image/upload/f_auto,q_auto/matrimonio%20fabio%20tiziana/IMG_2281"
       ]
     },
     {

@@ -53,10 +53,7 @@ export default function AdminLayoutEditor({ onSwitchToViewer }) {
         const parsed = JSON.parse(saved);
         if (Array.isArray(parsed) && parsed.length > 0) {
           const hasPg1 = parsed.some(p => p.name === 'pg 1');
-          if (!hasPg1 && initialAlbumData.pages?.[0]?.name === 'pg 1') {
-            return [initialAlbumData.pages[0], ...parsed];
-          }
-          return parsed;
+          if (hasPg1) return parsed;
         }
       }
     } catch (e) {
@@ -70,13 +67,27 @@ export default function AdminLayoutEditor({ onSwitchToViewer }) {
       const saved = localStorage.getItem('admin_layout_coords');
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          const hasPg1 = parsed.some(c => c.folder === 'pg 1' || c.folder === 'login');
+          if (hasPg1) return parsed;
+        }
       }
     } catch (e) {
       console.warn("Errore lettura admin_layout_coords da localStorage, ripristino default:", e);
     }
     return initialLayoutCoords;
   });
+
+  const handleResetToJSON = () => {
+    if (window.confirm("Vuoi ripristinare l'ultima configurazione salvata nel file JSON?")) {
+      localStorage.removeItem('admin_album_pages');
+      localStorage.removeItem('admin_layout_coords');
+      setAlbumPages(initialAlbumData.pages);
+      setLayoutCoords(initialLayoutCoords);
+      setActivePageIndex(0);
+      showNotification("Layout ripristinato con successo dal file JSON salvato!");
+    }
+  };
 
   const [activePageIndex, setActivePageIndex] = useState(0);
   const [activeSidebarTab, setActiveSidebarTab] = useState('layout'); // 'layout' | 'masks' | 'filters' | 'position' | 'video'
@@ -1058,6 +1069,15 @@ export default function AdminLayoutEditor({ onSwitchToViewer }) {
         </div>
 
         <div className="admin-topbar-right">
+          <button 
+            className="admin-btn secondary"
+            style={{ backgroundColor: '#475569', color: '#f8fafc', border: '1px solid #64748b' }}
+            onClick={handleResetToJSON}
+            title="Ripristina l'ultima configurazione salvata dal file JSON"
+          >
+            <span>Ripristina Layout JSON</span>
+          </button>
+
           <button 
             className="admin-btn secondary" 
             style={{ backgroundColor: '#1e293b', color: '#f8fafc', border: '1px solid #38bdf8' }}

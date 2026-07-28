@@ -9,14 +9,22 @@ const CLOUDINARY_API_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/auto/u
 
 /**
  * Mappatura iniziale dei Public ID reali su Cloudinary per i file del matrimonio
+ * inclusa la cartella 'matrimonio fabio tiziana' presente su Cloudinary jkxwp5hj
  */
 const CLOUDINARY_PUBLIC_MAP = {
   'DSC_0081.JPG': 'v1784975418/DSC_0081_feblep.jpg',
   'DSC_0081': 'v1784975418/DSC_0081_feblep.jpg',
-  'DSCN4918.JPG': 'v1784975465/DSCN4918.JPG_ft_ggswnd.jpg',
-  'DSCN4918': 'v1784975465/DSCN4918.JPG_ft_ggswnd.jpg',
-  'DSCN4898.JPG': 'v1784975466/DSCN4898.JPG_ft_znke8w.jpg',
-  'DSCN4898': 'v1784975466/DSCN4898.JPG_ft_znke8w.jpg'
+  'DSCN4918.JPG': 'matrimonio%20fabio%20tiziana/DSCN4918.JPG_ft_ggswnd.jpg',
+  'DSCN4918': 'matrimonio%20fabio%20tiziana/DSCN4918.JPG_ft_ggswnd.jpg',
+  'DSCN4898.JPG': 'matrimonio%20fabio%20tiziana/DSCN4898.JPG_ft_znke8w.jpg',
+  'DSCN4898': 'matrimonio%20fabio%20tiziana/DSCN4898.JPG_ft_znke8w.jpg',
+  'DSC_0270.JPG': 'matrimonio%20fabio%20tiziana/DSC_0270_msm6wp',
+  'DSC_0270': 'matrimonio%20fabio%20tiziana/DSC_0270_msm6wp',
+  'al_comune': 'matrimonio%20fabio%20tiziana/al_comune_mqj3v9',
+  'al comune.JPG': 'matrimonio%20fabio%20tiziana/al_comune_mqj3v9',
+  'al comune': 'matrimonio%20fabio%20tiziana/al_comune_mqj3v9',
+  'matrimonio_comune1': 'matrimonio%20fabio%20tiziana/matrimonio_comune1_s6qf1i',
+  'matrimonio_comune1_s6qf1i': 'matrimonio%20fabio%20tiziana/matrimonio_comune1_s6qf1i'
 };
 
 /**
@@ -25,7 +33,7 @@ const CLOUDINARY_PUBLIC_MAP = {
 export function isVideoFile(src) {
   if (!src) return false;
   const str = String(src).toLowerCase();
-  return str.endsWith('.mp4') || str.endsWith('.mov') || str.endsWith('.webm') || str.endsWith('.m4v') || str.includes('video');
+  return str.endsWith('.mp4') || str.endsWith('.mov') || str.endsWith('.webm') || str.endsWith('.m4v') || str.includes('video') || str.includes('matrimonio_comune');
 }
 
 /**
@@ -39,9 +47,17 @@ export function getCloudinaryUrl(publicIdOrSrc, options = {}) {
     return publicIdOrSrc;
   }
 
+  let inputSrc = publicIdOrSrc;
+
+  // Se è un URL di vercel o locale, estrai il nome file per mapparlo su Cloudinary
+  if (inputSrc.includes('vercel.app')) {
+    const parts = inputSrc.split('/');
+    inputSrc = decodeURIComponent(parts.pop());
+  }
+
   // Se è già un URL completo di Cloudinary
-  if (publicIdOrSrc.startsWith('http://') || publicIdOrSrc.startsWith('https://')) {
-    let finalUrl = publicIdOrSrc;
+  if (inputSrc.startsWith('http://') || inputSrc.startsWith('https://')) {
+    let finalUrl = inputSrc;
     if (options.cropParams && options.cropParams.w && options.cropParams.h) {
       const { w, h, x, y } = options.cropParams;
       const cropStr = `c_crop,w_${Math.round(w)},h_${Math.round(h)},x_${Math.round(x || 0)},y_${Math.round(y || 0)},f_auto,q_auto`;
@@ -56,16 +72,25 @@ export function getCloudinaryUrl(publicIdOrSrc, options = {}) {
   }
 
   // Pulisci il percorso rimuovendo gli slash iniziali e la cartella locale
-  let cleanId = publicIdOrSrc.replace(/^\//, '');
+  let cleanId = inputSrc.replace(/^\//, '');
   const fileName = cleanId.split('/').pop();
+  const rawBaseName = fileName.replace(/\.[^/.]+$/, "");
 
   // Verifica se esiste una mappatura esplicita per questo file
   if (CLOUDINARY_PUBLIC_MAP[fileName]) {
     cleanId = CLOUDINARY_PUBLIC_MAP[fileName];
   } else if (CLOUDINARY_PUBLIC_MAP[cleanId]) {
     cleanId = CLOUDINARY_PUBLIC_MAP[cleanId];
+  } else if (CLOUDINARY_PUBLIC_MAP[rawBaseName]) {
+    cleanId = CLOUDINARY_PUBLIC_MAP[rawBaseName];
   } else {
-    cleanId = cleanId.split('/').map(part => encodeURIComponent(part)).join('/');
+    // Se non è mappato, usa la cartella principale 'matrimonio fabio tiziana/' su Cloudinary
+    const encodedFileName = encodeURIComponent(fileName);
+    if (!cleanId.includes('matrimonio')) {
+      cleanId = `matrimonio%20fabio%20tiziana/${encodedFileName}`;
+    } else {
+      cleanId = cleanId.split('/').map(part => encodeURIComponent(part)).join('/');
+    }
   }
 
   const transforms = [];
@@ -95,15 +120,34 @@ export function getCloudinaryVideoUrl(publicIdOrSrc) {
     return publicIdOrSrc;
   }
 
-  if (publicIdOrSrc.startsWith('http://') || publicIdOrSrc.startsWith('https://')) {
-    return publicIdOrSrc;
+  let inputSrc = publicIdOrSrc;
+  if (inputSrc.includes('vercel.app')) {
+    inputSrc = decodeURIComponent(inputSrc.split('/').pop());
   }
 
-  let cleanId = publicIdOrSrc.replace(/^\//, '');
-  if (!cleanId.endsWith('.mp4') && !cleanId.endsWith('.mov') && !cleanId.endsWith('.webm')) {
-    cleanId += '.mp4';
+  if (inputSrc.startsWith('http://') || inputSrc.startsWith('https://')) {
+    return inputSrc;
   }
-  cleanId = cleanId.split('/').map(part => encodeURIComponent(part)).join('/');
+
+  let cleanId = inputSrc.replace(/^\//, '');
+  const fileName = cleanId.split('/').pop();
+  const rawBaseName = fileName.replace(/\.[^/.]+$/, "");
+
+  if (CLOUDINARY_PUBLIC_MAP[fileName]) {
+    cleanId = CLOUDINARY_PUBLIC_MAP[fileName];
+  } else if (CLOUDINARY_PUBLIC_MAP[rawBaseName]) {
+    cleanId = CLOUDINARY_PUBLIC_MAP[rawBaseName];
+  } else {
+    if (!cleanId.endsWith('.mp4') && !cleanId.endsWith('.mov') && !cleanId.endsWith('.webm')) {
+      cleanId += '.mp4';
+    }
+    const encodedFileName = encodeURIComponent(fileName.endsWith('.mp4') ? fileName : `${fileName}.mp4`);
+    if (!cleanId.includes('matrimonio')) {
+      cleanId = `matrimonio%20fabio%20tiziana/${encodedFileName}`;
+    } else {
+      cleanId = cleanId.split('/').map(part => encodeURIComponent(part)).join('/');
+    }
+  }
 
   return `${CLOUDINARY_BASE_URL}/video/upload/f_auto,q_auto/${cleanId}`;
 }
@@ -119,9 +163,13 @@ export function getCloudinaryVideoPosterUrl(publicIdOrSrc, options = {}) {
   }
 
   const startOffset = options.startOffset || 0;
+  let inputSrc = publicIdOrSrc;
+  if (inputSrc.includes('vercel.app')) {
+    inputSrc = decodeURIComponent(inputSrc.split('/').pop());
+  }
 
-  if (publicIdOrSrc.startsWith('http://') || publicIdOrSrc.startsWith('https://')) {
-    let posterUrl = publicIdOrSrc.replace(/\.(mp4|mov|webm|m4v)$/i, '.jpg');
+  if (inputSrc.startsWith('http://') || inputSrc.startsWith('https://')) {
+    let posterUrl = inputSrc.replace(/\.(mp4|mov|webm|m4v)$/i, '.jpg');
     if (posterUrl.includes('/video/upload/')) {
       if (!posterUrl.includes(`so_${startOffset}`)) {
         return posterUrl.replace('/video/upload/', `/video/upload/f_auto,q_auto,so_${startOffset}/`);
@@ -134,9 +182,23 @@ export function getCloudinaryVideoPosterUrl(publicIdOrSrc, options = {}) {
     return posterUrl;
   }
 
-  let cleanId = publicIdOrSrc.replace(/^\//, '');
-  cleanId = cleanId.replace(/\.(mp4|mov|webm|m4v)$/i, '') + '.jpg';
-  cleanId = cleanId.split('/').map(part => encodeURIComponent(part)).join('/');
+  let cleanId = inputSrc.replace(/^\//, '');
+  const fileName = cleanId.split('/').pop();
+  const rawBaseName = fileName.replace(/\.[^/.]+$/, "");
+
+  if (CLOUDINARY_PUBLIC_MAP[fileName]) {
+    cleanId = CLOUDINARY_PUBLIC_MAP[fileName];
+  } else if (CLOUDINARY_PUBLIC_MAP[rawBaseName]) {
+    cleanId = CLOUDINARY_PUBLIC_MAP[rawBaseName];
+  } else {
+    cleanId = cleanId.replace(/\.(mp4|mov|webm|m4v)$/i, '') + '.jpg';
+    const encodedFileName = encodeURIComponent(cleanId.split('/').pop());
+    if (!cleanId.includes('matrimonio')) {
+      cleanId = `matrimonio%20fabio%20tiziana/${encodedFileName}`;
+    } else {
+      cleanId = cleanId.split('/').map(part => encodeURIComponent(part)).join('/');
+    }
+  }
 
   const transforms = [];
 

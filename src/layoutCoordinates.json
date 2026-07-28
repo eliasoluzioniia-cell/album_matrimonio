@@ -1103,7 +1103,7 @@
       {
         "id": "item_1",
         "type": "image",
-        "cloudinaryPublicId": "https://album-matrimonio-fabio-tiziana.vercel.app/pg%2016_17/DSC_0270.JPG",
+        "cloudinaryPublicId": "https://res.cloudinary.com/jkxwp5hj/image/upload/f_auto,q_auto/matrimonio%20fabio%20tiziana/DSC_0270_msm6wp",
         "originalFilename": "DSC_0270.JPG",
         "effect": "none",
         "rect": {
